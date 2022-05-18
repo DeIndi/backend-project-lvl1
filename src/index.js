@@ -7,13 +7,14 @@ export function question (question) {
 
 
 export function checkAnswer (name, answer, correctAnswer) {
-if (answer !== correctAnswer) {
+ if (answer === correctAnswer || parseInt(answer) === parseInt(correctAnswer)) {
+      console.log('Correct!');
+      return true;
+    }
+    else {
       console.log(`${answer} is wrong answer ;(. Correct answer was ${correctAnswer}`);
       console.log(`Let's try again, ${name}`);
       return false;
-    } else {
-      console.log('Correct!');
-      return true;
     }	
 }
 

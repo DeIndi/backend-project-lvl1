@@ -6,8 +6,5 @@ import { Calc } from '../bin/brain-calc.js';
 import { input } from '../src/cli.js';
 
 console.log('Welcome to the Brain Games!');
-Even(input());
-
-
-
-//Calc(input());
+//Even(input());
+Calc(input());
