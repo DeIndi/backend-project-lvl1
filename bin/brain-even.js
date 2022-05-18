@@ -1,5 +1,3 @@
-import { question } from '../src/index.js';
-import { checkAnswer } from '../src/index.js';
 import { mainLoop } from '../src/index.js';
 
 // eslint-disable-next-line no-unused-vars
