@@ -2,11 +2,11 @@ import { mainLoop } from '../src/index.js';
 
 // eslint-disable-next-line no-unused-vars
 // eslint-disable-next-line import/prefer-default-export
-export function Even(name) {
+export const Even = (name) => {
   const correctAnswers = [];
   const randNums = [];
   const questionText = 'Answer "yes" if the number is even, otherwise answer "no".';
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < 3; i += 1) {
     randNums[i] = Math.floor(Math.random() * 100);
     correctAnswers[i] = 'no';
     switch (randNums[i] % 2) {
@@ -16,4 +16,6 @@ export function Even(name) {
     }
   }
   mainLoop(questionText, name, randNums, correctAnswers);
-}
+};
+
+export default Even;

@@ -1,6 +1,19 @@
 import { mainLoop } from '../src/index.js';
 
-export function GcD_Loop(name) {
+function gcd(x, y) {
+  let a = x;
+  let b = y;
+  while (a !== 0 && b !== 0) {
+    if (a > b) {
+      a %= b;
+    } else {
+      b %= a;
+    }
+  }
+  return (a + b);
+}
+
+export function gcdLoop(name) {
   const questionText = 'Find the greatest common divisor of given numbers.';
   const questions = [];
   const correctAnswers = [];
@@ -14,13 +27,4 @@ export function GcD_Loop(name) {
   mainLoop(questionText, name, questions, correctAnswers);
 }
 
-function gcd(a, b) {
-  while (a !== 0 && b !== 0) {
-    if (a > b) {
-      a %= b;
-    } else {
-      b %= a;
-    }
-  }
-  return (a + b);
-}
+export default gcdLoop;

@@ -8,7 +8,6 @@ export const Calc = (name) => {
     const n2 = Math.floor(Math.random() * 100);
     const opArray = ['+', '-', '*'];
     const op = opArray[Math.floor(Math.random() * opArray.length)];
-    const result = 0;
     switch (op) {
       case '+': results[i] = n1 + n2; questions[i] = `${n1} + ${n2}`; break;
       case '*': results[i] = n1 * n2; questions[i] = `${n1} * ${n2}`; break;
@@ -18,3 +17,5 @@ export const Calc = (name) => {
   }
   mainLoop('', name, questions, results);
 };
+
+export default Calc;
