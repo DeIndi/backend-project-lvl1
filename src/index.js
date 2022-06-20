@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
 
-export function questionF(question) {
+export function askQuestion(question) {
   const answer = readlineSync.question(`Question: ${question}`);
   console.log(`Your answer: ${answer}`);
   return answer;
@@ -17,11 +17,11 @@ export function checkAnswer(name, answer, correctAnswer) {
   return false;
 }
 
-export function mainLoop(questionText, name, questions, correctAnswers) {
+export function iterateQuestions(questionText, name, questions, correctAnswers) {
   let corrAnswNum = 0;
   console.log(questionText);
   for (let i = 0; i < 3; i += 1) {
-    const answer = questionF(questions[i]);
+    const answer = askQuestion(questions[i]);
     if (checkAnswer(name, answer, correctAnswers[i])) {
       corrAnswNum += 1;
     } else {

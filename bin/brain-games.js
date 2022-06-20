@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-import { Even } from './brain-even.js';
-import { Calc } from './brain-calc.js';
-import { gcdLoop } from './brain-gcd.js';
-import { Progression } from './brain-progression.js';
-import { PrimeGame } from './brain-prime.js';
+import { Even } from '../games/brain-even.js';
+import { Calc } from '../games/brain-calc.js';
+import { gcdLoop } from '../games/brain-gcd.js';
+import { Progression } from '../games/brain-progression.js';
+import { PrimeGame } from '../games/brain-prime.js';
 // eslint-disable-next-line import/named
 import { input } from '../src/cli.js';
 
