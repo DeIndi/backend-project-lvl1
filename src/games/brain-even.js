@@ -1,21 +1,22 @@
-import { iterateQuestions } from '../src/index.js';
+// eslint-disable-next-line import/no-unresolved
+import { iterateQuestions } from '../index.js';
 
-// eslint-disable-next-line no-unused-vars
-// eslint-disable-next-line import/prefer-default-export
-export const Even = (name) => {
-  const correctAnswers = [];
-  const randNums = [];
-  const questionText = 'Answer "yes" if the number is even, otherwise answer "no".';
-  for (let i = 0; i < 3; i += 1) {
-    randNums[i] = Math.floor(Math.random() * 100);
-    correctAnswers[i] = 'no';
-    switch (randNums[i] % 2) {
-      case 0: correctAnswers[i] = 'yes'; break;
-      case 1: correctAnswers[i] = 'no'; break;
-      default: break;
-    }
+const generateQuestionAnswerPair = () => {
+  let randNum = 0;
+  randNum = Math.floor(Math.random() * 100);
+  let correctAnswer = 'no';
+  switch (randNum % 2) {
+    case 0: correctAnswer = 'yes'; break;
+    case 1: correctAnswer = 'no'; break;
+    default: break;
   }
-  iterateQuestions(questionText, name, randNums, correctAnswers);
+  const questionText = randNum;
+  return [questionText, correctAnswer];
+};
+
+export const Even = (name) => {
+  const questionDesc = 'Answer "yes" if the number is even, otherwise answer "no".';
+  iterateQuestions(generateQuestionAnswerPair, questionDesc, name);
 };
 
 export default Even;

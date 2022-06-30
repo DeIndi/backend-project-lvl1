@@ -17,12 +17,14 @@ export function checkAnswer(name, answer, correctAnswer) {
   return false;
 }
 
-export function iterateQuestions(questionText, name, questions, correctAnswers) {
+export function iterateQuestions(generateQuestionAnswerPair, questionDesc, name) {
+  // const corrAnswNum = 0;
   let corrAnswNum = 0;
-  console.log(questionText);
+  console.log(questionDesc);
   for (let i = 0; i < 3; i += 1) {
-    const answer = askQuestion(questions[i]);
-    if (checkAnswer(name, answer, correctAnswers[i])) {
+    const temp = generateQuestionAnswerPair();
+    const answer = askQuestion(temp[0]);
+    if (checkAnswer(name, answer, temp[1])) {
       corrAnswNum += 1;
     } else {
       break;

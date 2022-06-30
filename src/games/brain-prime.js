@@ -1,4 +1,4 @@
-import { iterateQuestions } from '../src/index.js';
+import { iterateQuestions } from '../index.js';
 
 const Prime = (n) => {
   for (let i = 2; i < n; i += 1) {
@@ -7,20 +7,22 @@ const Prime = (n) => {
   return true;
 };
 
-export const PrimeGame = (name) => {
-  const questionText = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  const correctAnswers = [];
-  const questions = [];
-  for (let i = 0; i < 3; i += 1) {
-    const num = Math.floor(Math.random() * 100);
-    questions[i] = num.toString();
-    if (Prime(num)) {
-      (correctAnswers[i] = 'yes');
-    } else {
-      (correctAnswers[i] = 'no');
-    }
+const generateQuestionAnswerPair = () => {
+  let randNum = 0;
+  randNum = Math.floor(Math.random() * 100);
+  let correctAnswer = 'no';
+  switch (Prime(randNum)) {
+    case true: correctAnswer = 'yes'; break;
+    case false: correctAnswer = 'no'; break;
+    default: break;
   }
-  iterateQuestions(questionText, name, questions, correctAnswers);
+  const questionText = randNum;
+  return [questionText, correctAnswer];
+};
+
+export const PrimeGame = (name) => {
+  const questionDesc = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+  iterateQuestions(generateQuestionAnswerPair, questionDesc, name);
 };
 
 export default PrimeGame;

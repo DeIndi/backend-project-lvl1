@@ -1,4 +1,4 @@
-import { iterateQuestions } from '../src/index.js';
+import { iterateQuestions } from '../index.js';
 
 function gcd(x, y) {
   let a = x;
@@ -13,18 +13,17 @@ function gcd(x, y) {
   return (a + b);
 }
 
-export function gcdLoop(name) {
-  const questionText = 'Find the greatest common divisor of given numbers.';
-  const questions = [];
-  const correctAnswers = [];
-  for (let i = 0; i < 3; i += 1) {
-    const n1 = Math.floor(Math.random() * 11);
-    const n2 = Math.floor(Math.random() * 11);
-    questions[i] = `${n1} ${n2}`;
-    correctAnswers[i] = gcd(n1, n2);
-  }
+const generateQuestionAnswerPair = () => {
+  const n1 = Math.floor(Math.random() * 11);
+  const n2 = Math.floor(Math.random() * 11);
+  const correctAnswer = gcd(n1, n2);
+  const questionText = `${n1} ${n2}`;
+  return [questionText, correctAnswer];
+};
 
-  iterateQuestions(questionText, name, questions, correctAnswers);
+export function gcdLoop(name) {
+  const questionDesc = 'Find the greatest common divisor of given numbers.';
+  iterateQuestions(generateQuestionAnswerPair, questionDesc, name);
 }
 
 export default gcdLoop;
