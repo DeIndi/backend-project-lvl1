@@ -18,7 +18,6 @@ export function checkAnswer(name, answer, correctAnswer) {
 }
 
 export function iterateQuestions(generateQuestionAnswerPair, questionDesc, name) {
-  // const corrAnswNum = 0;
   let corrAnswNum = 0;
   console.log(questionDesc);
   for (let i = 0; i < 3; i += 1) {
