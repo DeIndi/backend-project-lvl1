@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { PrimeGame } from '../src/games/brain-prime.js';
 import { input } from '../src/cli.js';
 
