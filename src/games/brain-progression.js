@@ -14,7 +14,7 @@ const generateQuestionAnswerPair = () => {
     if (j !== hiddenIndex) {
       question += ` ${pArray[j]}`;
     } else {
-      question += ' ...';
+      question += ' ..';
     }
   }
   correctAnswer = pArray[hiddenIndex];
