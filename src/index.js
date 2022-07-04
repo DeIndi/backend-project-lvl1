@@ -1,8 +1,8 @@
 import readlineSync from 'readline-sync';
 
 export function askQuestion(question) {
-  const answer = readlineSync.question(`Question: ${question}`);
-  console.log(`Your answer: ${answer}`);
+  console.log(`Question: ${question}`);
+  const answer = readlineSync.question(`Your answer: `);
   return answer;
 }
 
