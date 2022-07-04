@@ -12,9 +12,12 @@ const generateQuestionAnswerPair = () => {
       pArray[j] = Math.floor(Math.random() * 30);
     }
     if (j !== hiddenIndex) {
-      question += ` ${pArray[j]}`;
+      question += `${pArray[j]}`;
     } else {
-      question += ' ..';
+      question += '..';
+    }
+    if (j < 5) {
+      question += ' ';
     }
   }
   correctAnswer = pArray[hiddenIndex];
