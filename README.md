@@ -1,4 +1,7 @@
 ### "Mind Games" Project
+This is the first project out of four, required for the node.js course.
+It consists of five console games, launched separately with commands brain-even, brain-calc, brain-gcd, brain-progression, brain-prime. User is presented with three questions depending on the game. To successfully finish the game, user has to answer all three questions correctly.
+
 [![Actions Status](https://github.com/DeIndi/backend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/DeIndi/backend-project-lvl1/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/8bbee87a2db3d229dc73/maintainability)](https://codeclimate.com/github/DeIndi/backend-project-lvl1/maintainability)
 [![Node CI](https://github.com/DeIndi/backend-project-lvl1/actions/workflows/nodejs.yml/badge.svg)](https://github.com/DeIndi/backend-project-lvl1/actions/workflows/nodejs.yml)
