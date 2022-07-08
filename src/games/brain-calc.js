@@ -17,9 +17,9 @@ const generateQuestionAnswerPair = () => {
   return [questionText, correctAnswer];
 };
 
-export const Calc = (name) => {
+export const startCalcGame = (name) => {
   const questionDesc = 'Calculate the end result';
   iterateQuestions(generateQuestionAnswerPair, questionDesc, name);
 };
 
-export default Calc;
+export default startCalcGame;

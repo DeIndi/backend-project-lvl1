@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { gcdLoop } from '../src/games/brain-gcd.js';
+import { startGcdGame } from '../src/games/brain-gcd.js';
 import { input } from '../src/cli.js';
 
-gcdLoop(input());
+startGcdGame(input());

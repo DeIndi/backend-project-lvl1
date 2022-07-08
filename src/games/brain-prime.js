@@ -20,9 +20,9 @@ const generateQuestionAnswerPair = () => {
   return [questionText, correctAnswer];
 };
 
-export const PrimeGame = (name) => {
+export const startPrimeGame = (name) => {
   const questionDesc = 'Answer "yes" if given number is prime. Otherwise answer "no".';
   iterateQuestions(generateQuestionAnswerPair, questionDesc, name);
 };
 
-export default PrimeGame;
+export default startPrimeGame;

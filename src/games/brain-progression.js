@@ -25,10 +25,10 @@ const generateQuestionAnswerPair = () => {
   return [questionText, correctAnswer];
 };
 
-export const Progression = (name) => {
+export const startProgressionGame = (name) => {
   const questionDesc = 'What number is missing in the progression?';
 
   iterateQuestions(generateQuestionAnswerPair, questionDesc, name);
 };
 
-export default Progression;
+export default startProgressionGame;
