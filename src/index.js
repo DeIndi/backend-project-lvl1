@@ -1,4 +1,5 @@
 import readlineSync from 'readline-sync';
+import { input } from '../src/cli.js';
 
 export function askQuestion(question) {
   console.log(`Question: ${question}`);
@@ -17,7 +18,8 @@ export function checkAnswer(name, answer, correctAnswer) {
   return false;
 }
 
-export function iterateQuestions(generateQuestionAnswerPair, questionDesc, name) {
+export function iterateQuestions(generateQuestionAnswerPair, questionDesc) {
+  const name = input();
   let corrAnswNum = 0;
   console.log(questionDesc);
   for (let i = 0; i < 3; i += 1) {

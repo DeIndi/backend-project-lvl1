@@ -14,9 +14,9 @@ const generateQuestionAnswerPair = () => {
   return [questionText, correctAnswer];
 };
 
-export const startEvenGame = (name) => {
+export const startEvenGame = () => {
   const questionDesc = 'Answer "yes" if the number is even, otherwise answer "no".';
-  iterateQuestions(generateQuestionAnswerPair, questionDesc, name);
+  iterateQuestions(generateQuestionAnswerPair, questionDesc);
 };
 
 export default startEvenGame;
