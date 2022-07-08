@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import { input } from '../src/cli.js';
+import { input } from './cli.js';
 
 export function askQuestion(question) {
   console.log(`Question: ${question}`);
