@@ -1,5 +1,0 @@
-make.exe --dry-run --always-make --keep-going --print-directory
-make: Entering directory 'c:/Users/Nikolay/Desktop/backend-project-lvl1'
-npm ci
-make: Leaving directory 'c:/Users/Nikolay/Desktop/backend-project-lvl1'
- 
