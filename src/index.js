@@ -1,24 +1,25 @@
 import readlineSync from 'readline-sync';
 import { input } from './cli.js';
 
-export function askQuestion(question) {
+const correctAnswersReq = 3;
+
+export const askQuestion = (question) => {
   console.log(`Question: ${question}`);
   const answer = readlineSync.question('Your answer: ');
   return answer;
-}
+};
 
-export function checkAnswer(name, answer, correctAnswer) {
+export const checkAnswer = (name, answer, correctAnswer) => {
   if (answer === correctAnswer || parseInt(answer, 10) === parseInt(correctAnswer, 10)) {
     console.log('Correct!');
     return true;
   }
-
   console.log(`${answer} is wrong answer ;(. Correct answer was ${correctAnswer}`);
   console.log(`Let's try again, ${name}!`);
   return false;
-}
+};
 
-export function iterateQuestions(generateQuestionAnswerPair, questionDesc) {
+export const iterateQuestions = (generateQuestionAnswerPair, questionDesc) => {
   const name = input();
   let corrAnswNum = 0;
   console.log(questionDesc);
@@ -31,7 +32,7 @@ export function iterateQuestions(generateQuestionAnswerPair, questionDesc) {
       break;
     }
   }
-  if (corrAnswNum === 3) {
+  if (corrAnswNum === correctAnswersReq) {
     console.log(`Congratulations, ${name}!`);
   }
-}
+};

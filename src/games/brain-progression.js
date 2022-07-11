@@ -27,7 +27,6 @@ const generateQuestionAnswerPair = () => {
 
 export const startProgressionGame = () => {
   const questionDesc = 'What number is missing in the progression?';
-
   iterateQuestions(generateQuestionAnswerPair, questionDesc);
 };
 
