@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import { input } from './cli.js';
+import askName from './cli.js';
 
 const correctAnswersReq = 3;
 
@@ -20,7 +20,7 @@ export const checkAnswer = (name, answer, correctAnswer) => {
 };
 
 export const iterateQuestions = (generateQuestionAnswerPair, questionDesc) => {
-  const name = input();
+  const name = askName();
   let corrAnswNum = 0;
   console.log(questionDesc);
   for (let i = 0; i < 3; i += 1) {

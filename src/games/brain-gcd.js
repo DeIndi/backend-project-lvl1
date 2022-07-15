@@ -21,7 +21,7 @@ const generateQuestionAnswerPair = () => {
   return [questionText, correctAnswer];
 };
 
-export function startGcdGame() {
+function startGcdGame() {
   const questionDesc = 'Find the greatest common divisor of given numbers.';
   iterateQuestions(generateQuestionAnswerPair, questionDesc);
 }
