@@ -13,9 +13,9 @@ const generateAnswer = (question) => {
   const operands = question.split(' ');
   let correctAnswer = 0;
   switch (operands[1]) {
-    case '+': correctAnswer = operands[0] + operands[2]; break;
-    case '*': correctAnswer = operands[0] * operands[2]; break;
-    case '-': correctAnswer = operands[0] - operands[2]; break;
+    case '+': correctAnswer = parseInt(operands[0]) + parseInt(operands[2]); break;
+    case '*': correctAnswer = parseInt(operands[0]) * parseInt(operands[2]); break;
+    case '-': correctAnswer = parseInt(operands[0]) - parseInt(operands[2]); break;
     default: correctAnswer = 0;
   }
   return correctAnswer;
