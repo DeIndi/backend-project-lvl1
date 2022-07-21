@@ -1,29 +1,30 @@
-import { iterateQuestions } from '../index.js';
+import iterateQuestions from '../index.js';
+import generateFloorRand from '../generateFloorRand.js';
 
-function gcd(x, y) {
-  let a = x;
-  let b = y;
-  while (a !== 0 && b !== 0) {
-    if (a > b) {
-      a %= b;
-    } else {
-      b %= a;
-    }
+const gcd = (a, b) => {
+  if (!b) {
+    return a;
   }
-  return (a + b);
-}
+  return gcd(b, a % b);
+};
 
-const generateQuestionAnswerPair = () => {
-  const n1 = Math.floor(Math.random() * 11);
-  const n2 = Math.floor(Math.random() * 11);
-  const correctAnswer = gcd(n1, n2);
-  const questionText = `${n1} ${n2}`;
-  return [questionText, correctAnswer];
+const generateQuestion = () => {
+  const n1 = generateFloorRand(11);
+  const n2 = generateFloorRand(11);
+  return `${n1} ${n2}`;
+};
+
+const generateAnswer = (question) => {
+    const operands = question.split(' ');
+    console.log(operands);
+    const correctAnswer = gcd(operands[0], operands[1]);
+    console.log(correctAnswer);
+    return correctAnswer;
 };
 
 function startGcdGame() {
   const questionDesc = 'Find the greatest common divisor of given numbers.';
-  iterateQuestions(generateQuestionAnswerPair, questionDesc);
+  iterateQuestions(generateQuestion, generateAnswer, questionDesc);
 }
 
 export default startGcdGame;

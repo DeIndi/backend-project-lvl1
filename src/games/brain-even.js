@@ -1,21 +1,13 @@
-import { iterateQuestions } from '../index.js';
+import iterateQuestions from '../index.js';
+import generateFloorRand from '../generateFloorRand.js';
 
-const generateQuestionAnswerPair = () => {
-  let randNum = 0;
-  randNum = Math.floor(Math.random() * 100);
-  let correctAnswer = 'no';
-  switch (randNum % 2) {
-    case 0: correctAnswer = 'yes'; break;
-    case 1: correctAnswer = 'no'; break;
-    default: break;
-  }
-  const questionText = randNum;
-  return [questionText, correctAnswer];
-};
+const generateQuestion = () => generateFloorRand(100);
 
-export const startEvenGame = () => {
+const generateAnswer = (question) => (question % 2) ? 'no' : 'yes';
+
+const startEvenGame = () => {
   const questionDesc = 'Answer "yes" if the number is even, otherwise answer "no".';
-  iterateQuestions(generateQuestionAnswerPair, questionDesc);
+  iterateQuestions(generateQuestion, generateAnswer, questionDesc);
 };
 
 export default startEvenGame;

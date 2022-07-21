@@ -1,24 +1,29 @@
-import { iterateQuestions } from '../index.js';
+import iterateQuestions from '../index.js';
+import generateFloorRand from '../generateFloorRand.js';
 
-const generateQuestionAnswerPair = () => {
-  const n1 = Math.floor(Math.random() * 100);
-  const n2 = Math.floor(Math.random() * 100);
+const generateQuestion = () => {
+  const n1 = generateFloorRand(100);
+  const n2 = generateFloorRand(100);
   const opArray = ['+', '-', '*'];
-  const op = opArray[Math.floor(Math.random() * opArray.length)];
-  let correctAnswer = 0;
-  let questionText = '';
-  switch (op) {
-    case '+': correctAnswer = n1 + n2; questionText = `${n1} + ${n2}`; break;
-    case '*': correctAnswer = n1 * n2; questionText = `${n1} * ${n2}`; break;
-    case '-': correctAnswer = n1 - n2; questionText = `${n1} - ${n2}`; break;
-    default: correctAnswer = 0;
-  }
-  return [questionText, correctAnswer];
+  const op = opArray[generateFloorRand(opArray.length)];
+  return `${n1} ${op} ${n2}`;
 };
 
-export const startCalcGame = () => {
+const generateAnswer = (question) => {
+  const operands = question.split(' ');
+  let correctAnswer = 0;
+  switch (operands[1]) {
+    case '+': correctAnswer = operands[0] + operands[2]; break;
+    case '*': correctAnswer = operands[0] * operands[2]; break;
+    case '-': correctAnswer = operands[0] - operands[2]; break;
+    default: correctAnswer = 0;
+  }
+  return correctAnswer;
+};
+
+const startCalcGame = () => {
   const questionDesc = 'Calculate the end result';
-  iterateQuestions(generateQuestionAnswerPair, questionDesc);
+  iterateQuestions(generateQuestion, generateAnswer, questionDesc);
 };
 
 export default startCalcGame;

@@ -1,15 +1,16 @@
-import { iterateQuestions } from '../index.js';
+import iterateQuestions from '../index.js';
+import generateFloorRand from '../generateFloorRand.js';
 
-const generateQuestionAnswerPair = () => {
+const generateQuestion = () => {
   const pArray = [];
   let hiddenIndex = 0;
   let question = '';
   let correctAnswer = 0;
-  hiddenIndex = Math.floor(Math.random() * 6);
-  const pk = Math.floor(Math.random() * 30);
+  hiddenIndex = generateFloorRand(6);
+  const pk = generateFloorRand(30);
   for (let j = 0; j < 6; j += 1) {
     if (j !== 0) { pArray[j] = (pArray[j - 1] + pk); } else {
-      pArray[j] = Math.floor(Math.random() * 30);
+      pArray[j] = generateFloorRand(30);
     }
     if (j !== hiddenIndex) {
       question += `${pArray[j]}`;
@@ -20,14 +21,28 @@ const generateQuestionAnswerPair = () => {
       question += ' ';
     }
   }
-  correctAnswer = pArray[hiddenIndex];
-  const questionText = question;
-  return [questionText, correctAnswer];
+  return question;
 };
 
-export const startProgressionGame = () => {
+const getProgressionDiff = (progression) => {
+  for (let i = 0; i < progression.length - 1; i += 1) {
+    if ( progression[i] !== '..' && progression[i+1] !== '..' ) {
+      return Math.abs(progression[i+1] - progression[i]);
+    }
+  }
+return null;
+}
+
+const generateAnswer = (question) => {
+  const progression = question.split(' ');
+  const diff = getProgressionDiff(progression);
+  const promptPos = progression.indexOf('..'); 
+  return (promptPos < progression.length - 1) ? progression[promptPos + 1] - diff : progression[promptPos - 1] + diff;
+};
+
+const startProgressionGame = () => {
   const questionDesc = 'What number is missing in the progression?';
-  iterateQuestions(generateQuestionAnswerPair, questionDesc);
+  iterateQuestions(generateQuestion, generateAnswer, questionDesc);
 };
 
 export default startProgressionGame;
