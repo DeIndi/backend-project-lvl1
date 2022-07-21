@@ -8,9 +8,9 @@ const isPrime = (n) => {
   return true;
 };
 
-const generateQuestion = () => generateFloorRand(100);
+const generateQuestion = () => (generateFloorRand(100));
 
-const generateAnswer = (question) => isPrime(parseInt(question, 10)) ? 'yes' : 'no';
+const generateAnswer = (question) => (isPrime(parseInt(question, 10)) ? 'yes' : 'no');
 
 const startPrimeGame = () => {
   const questionDesc = 'Answer "yes" if given number is prime. Otherwise answer "no".';
