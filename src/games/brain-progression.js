@@ -33,7 +33,7 @@ const getProgressionDiff = (progression) => {
 };
 
 const generateAnswer = (question) => {
-  const progression = question.split(' ');
+  const progression = question.split(' ').map((x) => ((x === '..') ? x : parseInt(x, 10)));
   const diff = getProgressionDiff(progression);
   const promptPos = progression.indexOf('..');
   return (promptPos < progression.length - 1) ? progression[promptPos + 1] - diff

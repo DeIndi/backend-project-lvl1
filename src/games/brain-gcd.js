@@ -15,7 +15,7 @@ const generateQuestion = () => {
 };
 
 const generateAnswer = (question) => {
-  const operands = question.split(' ');
+  const operands = question.split(' ').map((x) => parseInt(x, 10));
   console.log(operands);
   const correctAnswer = gcd(operands[0], operands[1]);
   console.log(correctAnswer);
