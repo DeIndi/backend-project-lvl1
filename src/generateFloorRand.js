@@ -1,4 +1,2 @@
-const generateFloorRand = (n) => {
-	return Math.floor(Math.random() * n);
-};
+const generateFloorRand = (n) => Math.floor(Math.random() * n);
 export default generateFloorRand;

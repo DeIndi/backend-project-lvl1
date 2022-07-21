@@ -5,7 +5,6 @@ const generateQuestion = () => {
   const pArray = [];
   let hiddenIndex = 0;
   let question = '';
-  let correctAnswer = 0;
   hiddenIndex = generateFloorRand(6);
   const pk = generateFloorRand(30);
   for (let j = 0; j < 6; j += 1) {
@@ -26,18 +25,19 @@ const generateQuestion = () => {
 
 const getProgressionDiff = (progression) => {
   for (let i = 0; i < progression.length - 1; i += 1) {
-    if ( progression[i] !== '..' && progression[i+1] !== '..' ) {
-      return Math.abs(progression[i+1] - progression[i]);
+    if (progression[i] !== '..' && progression[i + 1] !== '..') {
+      return Math.abs(progression[i + 1] - progression[i]);
     }
   }
-return null;
-}
+  return null;
+};
 
 const generateAnswer = (question) => {
   const progression = question.split(' ');
   const diff = getProgressionDiff(progression);
-  const promptPos = progression.indexOf('..'); 
-  return (promptPos < progression.length - 1) ? progression[promptPos + 1] - diff : progression[promptPos - 1] + diff;
+  const promptPos = progression.indexOf('..');
+  return (promptPos < progression.length - 1) ? progression[promptPos + 1] - diff
+    : progression[promptPos - 1] + diff;
 };
 
 const startProgressionGame = () => {

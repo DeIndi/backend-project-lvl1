@@ -15,11 +15,11 @@ const generateQuestion = () => {
 };
 
 const generateAnswer = (question) => {
-    const operands = question.split(' ');
-    console.log(operands);
-    const correctAnswer = gcd(operands[0], operands[1]);
-    console.log(correctAnswer);
-    return correctAnswer;
+  const operands = question.split(' ');
+  console.log(operands);
+  const correctAnswer = gcd(operands[0], operands[1]);
+  console.log(correctAnswer);
+  return correctAnswer;
 };
 
 function startGcdGame() {

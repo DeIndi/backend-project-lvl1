@@ -10,7 +10,7 @@ const isPrime = (n) => {
 
 const generateQuestion = () => generateFloorRand(100);
 
-const generateAnswer = (question) => isPrime(question) ? 'yes' : 'no';
+const generateAnswer = (question) => (isPrime(question) ? 'yes' : 'no');
 
 const startPrimeGame = () => {
   const questionDesc = 'Answer "yes" if given number is prime. Otherwise answer "no".';

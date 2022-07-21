@@ -19,7 +19,7 @@ export const checkAnswer = (name, answer, correctAnswer) => {
   return false;
 };
 
-export const iterateQuestions = (generateQuestion, generateAnswer, questionDesc) => {
+const iterateQuestions = (generateQuestion, generateAnswer, questionDesc) => {
   const name = askName();
   let corrAnswNum = 0;
   console.log(questionDesc);
