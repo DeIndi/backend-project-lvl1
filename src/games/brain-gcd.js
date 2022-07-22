@@ -11,7 +11,7 @@ const gcd = (a, b) => {
 const generateQuestionAnswerPair = () => {
   const a = generateFloorRand(11);
   const b = generateFloorRand(11);
-  return [`${a} ${b}`, gcd(a,b)];
+  return [`${a} ${b}`, gcd(a, b)];
 };
 
 function startGcdGame() {

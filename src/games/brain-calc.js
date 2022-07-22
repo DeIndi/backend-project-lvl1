@@ -9,7 +9,7 @@ const calcExpression = (a, operator, b) => {
     case '+': result = a + b; break;
     case '*': result = a * b; break;
     case '-': result = a - b; break;
-    default: correctAnswer = 0;
+    default: result = 0;
   }
   return result;
 };

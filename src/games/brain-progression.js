@@ -14,11 +14,11 @@ const generateQuestionAnswerPair = () => {
       progression.push('..');
       hiddenElement = lastGenerated + progressionCoeff;
     } else {
-    progression.push (lastGenerated + progressionCoeff);
+      progression.push(lastGenerated + progressionCoeff);
+    }
+    lastGenerated += progressionCoeff;
   }
-  lastGenerated += progressionCoeff;
-  }
-  return [progression.join (' '), hiddenElement];
+  return [progression.join(' '), hiddenElement];
 };
 
 const startProgressionGame = () => {
