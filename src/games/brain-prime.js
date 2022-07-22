@@ -8,13 +8,14 @@ const isPrime = (n) => {
   return true;
 };
 
-const generateQuestion = () => (generateFloorRand(100));
-
-const generateAnswer = (question) => (isPrime(parseInt(question, 10)) ? 'yes' : 'no');
+const generateQuestionAnswerPair = () => {
+  const question = generateFloorRand(100);
+  return [question, isPrime(question) ? 'yes' : 'no'];
+};
 
 const startPrimeGame = () => {
   const questionDesc = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  iterateQuestions(generateQuestion, generateAnswer, questionDesc);
+  iterateQuestions(generateQuestionAnswerPair, questionDesc);
 };
 
 export default startPrimeGame;

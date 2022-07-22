@@ -19,14 +19,14 @@ export const checkAnswer = (name, answer, correctAnswer) => {
   return false;
 };
 
-const iterateQuestions = (generateQuestion, generateAnswer, questionDesc) => {
+const iterateQuestions = (generateQuestionAnswerPair, questionDesc) => {
   const name = askName();
   let corrAnswNum = 0;
   console.log(questionDesc);
   for (let i = 0; i < 3; i += 1) {
-    const question = generateQuestion();
-    const answer = askQuestion(question);
-    if (checkAnswer(name, answer, generateAnswer(question))) {
+    const QAPair = generateQuestionAnswerPair();
+    const answer = askQuestion(QAPair[0]);
+    if (checkAnswer(name, answer, QAPair[1])) {
       corrAnswNum += 1;
     } else {
       break;

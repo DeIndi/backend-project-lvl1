@@ -1,48 +1,29 @@
 import iterateQuestions from '../index.js';
 import generateFloorRand from '../generateFloorRand.js';
 
-const generateQuestion = () => {
-  const pArray = [];
-  let hiddenIndex = 0;
-  let question = '';
-  hiddenIndex = generateFloorRand(6);
-  const pk = generateFloorRand(30);
-  for (let j = 0; j < 6; j += 1) {
-    if (j !== 0) { pArray[j] = (pArray[j - 1] + pk); } else {
-      pArray[j] = generateFloorRand(30);
-    }
-    if (j !== hiddenIndex) {
-      question += `${pArray[j]}`;
+const progressionSize = 6;
+
+const generateQuestionAnswerPair = () => {
+  const progression = [];
+  const hiddenIndex = generateFloorRand(6);
+  const progressionCoeff = generateFloorRand(30);
+  let lastGenerated = generateFloorRand(30);
+  let hiddenElement = null;
+  for (let i = 0; i < progressionSize; i += 1) {
+    if (i === hiddenIndex) {
+      progression.push('..');
+      hiddenElement = lastGenerated + progressionCoeff;
     } else {
-      question += '..';
-    }
-    if (j < 5) {
-      question += ' ';
-    }
+    progression.push (lastGenerated + progressionCoeff);
   }
-  return question;
-};
-
-const getProgressionDiff = (progression) => {
-  for (let i = 0; i < progression.length - 1; i += 1) {
-    if (progression[i] !== '..' && progression[i + 1] !== '..') {
-      return Math.abs(progression[i + 1] - progression[i]);
-    }
+  lastGenerated += progressionCoeff;
   }
-  return null;
-};
-
-const generateAnswer = (question) => {
-  const progression = question.split(' ').map((x) => ((x === '..') ? x : parseInt(x, 10)));
-  const diff = getProgressionDiff(progression);
-  const promptPos = progression.indexOf('..');
-  return (promptPos < progression.length - 1) ? progression[promptPos + 1] - diff
-    : progression[promptPos - 1] + diff;
+  return [progression.join (' '), hiddenElement];
 };
 
 const startProgressionGame = () => {
   const questionDesc = 'What number is missing in the progression?';
-  iterateQuestions(generateQuestion, generateAnswer, questionDesc);
+  iterateQuestions(generateQuestionAnswerPair, questionDesc);
 };
 
 export default startProgressionGame;

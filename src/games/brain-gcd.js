@@ -8,23 +8,15 @@ const gcd = (a, b) => {
   return gcd(b, a % b);
 };
 
-const generateQuestion = () => {
-  const n1 = generateFloorRand(11);
-  const n2 = generateFloorRand(11);
-  return `${n1} ${n2}`;
-};
-
-const generateAnswer = (question) => {
-  const operands = question.split(' ').map((x) => parseInt(x, 10));
-  console.log(operands);
-  const correctAnswer = gcd(operands[0], operands[1]);
-  console.log(correctAnswer);
-  return correctAnswer;
+const generateQuestionAnswerPair = () => {
+  const a = generateFloorRand(11);
+  const b = generateFloorRand(11);
+  return [`${a} ${b}`, gcd(a,b)];
 };
 
 function startGcdGame() {
   const questionDesc = 'Find the greatest common divisor of given numbers.';
-  iterateQuestions(generateQuestion, generateAnswer, questionDesc);
+  iterateQuestions(generateQuestionAnswerPair, questionDesc);
 }
 
 export default startGcdGame;
