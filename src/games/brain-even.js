@@ -1,14 +1,14 @@
 import iterateQuestions from '../index.js';
-import generateFloorRand from '../generateFloorRand.js';
+import generateRand from '../generateRand.js';
 
 const generateQuestionAnswerPair = () => {
-  const question = generateFloorRand(100);
+  const question = generateRand(100);
   return [question, (question % 2) ? 'no' : 'yes'];
 };
 
 const startEvenGame = () => {
-  const questionDesc = 'Answer "yes" if the number is even, otherwise answer "no".';
-  iterateQuestions(generateQuestionAnswerPair, questionDesc);
+  const questionDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
+  iterateQuestions(generateQuestionAnswerPair, questionDescription);
 };
 
 export default startEvenGame;

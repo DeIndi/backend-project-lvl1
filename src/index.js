@@ -1,7 +1,8 @@
 import readlineSync from 'readline-sync';
 import askName from './cli.js';
 
-const correctAnswersReq = 3;
+const correctAnswersRequirement = 3;
+const totalQuestionsNumber = 3;
 
 export const askQuestion = (question) => {
   console.log(`Question: ${question}`);
@@ -19,20 +20,20 @@ export const checkAnswer = (name, answer, correctAnswer) => {
   return false;
 };
 
-const iterateQuestions = (generateQuestionAnswerPair, questionDesc) => {
+const iterateQuestions = (generateQuestionAnswerPair, questionDescription) => {
   const name = askName();
   let corrAnswNum = 0;
-  console.log(questionDesc);
-  for (let i = 0; i < 3; i += 1) {
-    const QAPair = generateQuestionAnswerPair();
-    const answer = askQuestion(QAPair[0]);
-    if (checkAnswer(name, answer, QAPair[1])) {
+  console.log(questionDescription);
+  for (let i = 0; i < totalQuestionsNumber; i += 1) {
+    const [question, correctAnswer] = generateQuestionAnswerPair();
+    const answer = askQuestion(question);
+    if (checkAnswer(name, answer, correctAnswer)) {
       corrAnswNum += 1;
     } else {
       break;
     }
   }
-  if (corrAnswNum === correctAnswersReq) {
+  if (corrAnswNum === correctAnswersRequirement) {
     console.log(`Congratulations, ${name}!`);
   }
 };

@@ -1,29 +1,31 @@
 import iterateQuestions from '../index.js';
-import generateFloorRand from '../generateFloorRand.js';
+import generateRand from '../generateRand.js';
 
-const progressionSize = 6;
+const progressionSizeMax = 6;
+const progressionCoeffMax = 30;
 
-const generateQuestionAnswerPair = () => {
+const generateProgression = (progressionSize, progressionCoeff) => {
   const progression = [];
-  const hiddenIndex = generateFloorRand(6);
-  const progressionCoeff = generateFloorRand(30);
-  let lastGenerated = generateFloorRand(30);
-  let hiddenElement = null;
+  let lastGenerated = generateRand(progressionCoeffMax);
   for (let i = 0; i < progressionSize; i += 1) {
-    if (i === hiddenIndex) {
-      progression.push('..');
-      hiddenElement = lastGenerated + progressionCoeff;
-    } else {
-      progression.push(lastGenerated + progressionCoeff);
-    }
+    progression.push(lastGenerated + progressionCoeff);
     lastGenerated += progressionCoeff;
   }
+  return progression;
+};
+
+const generateQuestionAnswerPair = () => {
+  const hiddenIndex = generateRand(progressionSizeMax);
+  const progressionCoeff = generateRand(progressionCoeffMax);
+  const progression = generateProgression(progressionSizeMax, progressionCoeff);
+  const hiddenElement = progression[hiddenIndex];
+  progression[hiddenIndex] = '..';
   return [progression.join(' '), hiddenElement];
 };
 
 const startProgressionGame = () => {
-  const questionDesc = 'What number is missing in the progression?';
-  iterateQuestions(generateQuestionAnswerPair, questionDesc);
+  const questionDescription = 'What number is missing in the progression?';
+  iterateQuestions(generateQuestionAnswerPair, questionDescription);
 };
 
 export default startProgressionGame;

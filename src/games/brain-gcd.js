@@ -1,5 +1,5 @@
 import iterateQuestions from '../index.js';
-import generateFloorRand from '../generateFloorRand.js';
+import generateRand from '../generateRand.js';
 
 const gcd = (a, b) => {
   if (!b) {
@@ -9,14 +9,14 @@ const gcd = (a, b) => {
 };
 
 const generateQuestionAnswerPair = () => {
-  const a = generateFloorRand(11);
-  const b = generateFloorRand(11);
+  const a = generateRand(11);
+  const b = generateRand(11);
   return [`${a} ${b}`, gcd(a, b)];
 };
 
 function startGcdGame() {
-  const questionDesc = 'Find the greatest common divisor of given numbers.';
-  iterateQuestions(generateQuestionAnswerPair, questionDesc);
+  const questionDescription = 'Find the greatest common divisor of given numbers.';
+  iterateQuestions(generateQuestionAnswerPair, questionDescription);
 }
 
 export default startGcdGame;
