@@ -10,7 +10,8 @@ const isPrime = (n) => {
 
 const generateQuestionAnswerPair = () => {
   const question = generateRand(100);
-  return [question, isPrime(question) ? 'yes' : 'no'];
+  const answer = isPrime(question) ? 'yes' : 'no';
+  return [question, answer];
 };
 
 const startPrimeGame = () => {

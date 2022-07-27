@@ -20,7 +20,8 @@ const generateQuestionAnswerPair = () => {
   const progression = generateProgression(progressionSizeMax, progressionCoeff);
   const hiddenElement = progression[hiddenIndex];
   progression[hiddenIndex] = '..';
-  return [progression.join(' '), hiddenElement];
+  const question = progression.join(' ');
+  return [question, hiddenElement];
 };
 
 const startProgressionGame = () => {

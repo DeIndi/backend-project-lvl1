@@ -3,7 +3,8 @@ import generateRand from '../generateRand.js';
 
 const generateQuestionAnswerPair = () => {
   const question = generateRand(100);
-  return [question, (question % 2) ? 'no' : 'yes'];
+  const answer = (question % 2) ? 'no' : 'yes';
+  return [question, answer];
 };
 
 const startEvenGame = () => {

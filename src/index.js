@@ -11,7 +11,7 @@ export const askQuestion = (question) => {
 };
 
 export const checkAnswer = (name, answer, correctAnswer) => {
-  if (answer === correctAnswer || parseInt(answer, 10) === parseInt(correctAnswer, 10)) {
+  if (answer === correctAnswer || parseInt(answer, 10) === correctAnswer) {
     console.log('Correct!');
     return true;
   }

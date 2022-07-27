@@ -8,7 +8,7 @@ const calcExpression = (a, operator, b) => {
     case '+': return a + b;
     case '*': return a * b;
     case '-': return a - b;
-    default: return 0;
+    default: return null;
   }
 };
 
