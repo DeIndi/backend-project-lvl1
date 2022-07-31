@@ -2,22 +2,22 @@ import iterateQuestions from '../index.js';
 import generateRand from '../generateRand.js';
 
 const progressionSizeMax = 6;
-const progressionCoeffMax = 30;
+const stepMax = 30;
 
-const generateProgression = (progressionSize, progressionCoeff) => {
+const generateProgression = (progressionSize, step) => {
   const progression = [];
-  let lastGenerated = generateRand(progressionCoeffMax);
+  let lastGenerated = generateRand(stepMax);
   for (let i = 0; i < progressionSize; i += 1) {
-    progression.push(lastGenerated + progressionCoeff);
-    lastGenerated += progressionCoeff;
+    progression.push(lastGenerated + step);
+    lastGenerated += step;
   }
   return progression;
 };
 
 const generateQuestionAnswerPair = () => {
   const hiddenIndex = generateRand(progressionSizeMax);
-  const progressionCoeff = generateRand(progressionCoeffMax);
-  const progression = generateProgression(progressionSizeMax, progressionCoeff);
+  const step = generateRand(stepMax);
+  const progression = generateProgression(progressionSizeMax, step);
   const hiddenElement = progression[hiddenIndex];
   progression[hiddenIndex] = '..';
   const question = progression.join(' ');
