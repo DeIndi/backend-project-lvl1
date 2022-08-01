@@ -9,7 +9,7 @@ const getProgressionElement = (first, position, step) => first + ((position - 1)
 const generateProgression = (progressionSize, step) => {
   const progression = [];
   progression[0] = generateRand(stepMax);
-  for (let i = 0; i < progressionSize; i += 1) {
+  for (let i = 1; i < progressionSize; i += 1) {
     progression.push(getProgressionElement(progression[0], i, step));
   }
   return progression;
