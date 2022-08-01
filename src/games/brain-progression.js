@@ -16,7 +16,7 @@ const generateProgression = (progressionSize, step) => {
 };
 
 const generateQuestionAnswerPair = () => {
-  const hiddenIndex = generateRand(progressionSizeMax-1);
+  const hiddenIndex = generateRand(progressionSizeMax - 1);
   const step = generateRand(stepMax);
   const progression = generateProgression(progressionSizeMax, step);
   const hiddenElement = progression[hiddenIndex];
