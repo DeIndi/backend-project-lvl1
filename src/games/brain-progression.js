@@ -4,12 +4,13 @@ import generateRand from '../generateRand.js';
 const progressionSizeMax = 6;
 const stepMax = 30;
 
+const getProgressionElement = (first, position, step) => first + ((position-1) * step);
+
 const generateProgression = (progressionSize, step) => {
   const progression = [];
-  let lastGenerated = generateRand(stepMax);
+  progression[0] = generateRand(stepMax);
   for (let i = 0; i < progressionSize; i += 1) {
-    progression.push(lastGenerated + step);
-    lastGenerated += step;
+    progression.push(getProgressionElement(progression[0], i, step));
   }
   return progression;
 };
