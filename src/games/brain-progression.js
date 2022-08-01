@@ -4,7 +4,7 @@ import generateRand from '../generateRand.js';
 const progressionSizeMax = 6;
 const stepMax = 30;
 
-const getProgressionElement = (first, position, step) => first + ((position-1) * step);
+const getProgressionElement = (first, position, step) => first + ((position - 1) * step);
 
 const generateProgression = (progressionSize, step) => {
   const progression = [];
