@@ -8,15 +8,15 @@ const getProgressionElement = (first, position, step) => first + ((position - 1)
 
 const generateProgression = (progressionSize, step) => {
   const progression = [];
-  progression[0] = generateRand(stepMax);
-  for (let i = 1; i < progressionSize; i += 1) {
+  progression.push(generateRand(stepMax));
+  for (let i = 2; i < progressionSize; i += 1) {
     progression.push(getProgressionElement(progression[0], i, step));
   }
   return progression;
 };
 
 const generateQuestionAnswerPair = () => {
-  const hiddenIndex = generateRand(progressionSizeMax);
+  const hiddenIndex = generateRand(progressionSizeMax-1);
   const step = generateRand(stepMax);
   const progression = generateProgression(progressionSizeMax, step);
   const hiddenElement = progression[hiddenIndex];
