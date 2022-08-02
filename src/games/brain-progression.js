@@ -4,11 +4,11 @@ import generateRand from '../generateRand.js';
 const progressionSizeMax = 6;
 const stepMax = 30;
 
-// const getProgressionElement = (first, position, step) => first + ((position - 1) * step);
+const getProgressionElement = (first, position, step) => first + position * step;
 
 const generateProgression = (first, progressionSize, step) => Array.from(
   { length: progressionSize },
-  (_, i) => (i + first) * step,
+  (_, i) => getProgressionElement(first, i, step),
 );
 
 const generateQuestionAnswerPair = () => {
