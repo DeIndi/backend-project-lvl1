@@ -9,8 +9,7 @@ export const askQuestion = (question) => {
   return answer;
 };
 
-export const checkAnswer = (name, answer, correctAnswer) => (!!((answer === correctAnswer
- || parseInt(answer, 10) === correctAnswer)));
+export const checkAnswer = (name, answer, correctAnswer) => answer === correctAnswer.toString();
 
 const iterateQuestions = (generateQuestionAnswerPair, questionDescription) => {
   const name = askName();
