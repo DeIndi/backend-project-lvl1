@@ -6,15 +6,16 @@ const stepMax = 30;
 
 // const getProgressionElement = (first, position, step) => first + ((position - 1) * step);
 
-const generateProgression = (progressionSize, step) => {
-  const first = generateRand(stepMax);
-  return Array.from({ length: progressionSize }, (_, i) => (i + first) * step);
-};
+const generateProgression = (first, progressionSize, step) => Array.from(
+  { length: progressionSize },
+  (_, i) => (i + first) * step,
+);
 
 const generateQuestionAnswerPair = () => {
   const hiddenIndex = generateRand(progressionSizeMax - 1);
   const step = generateRand(stepMax);
-  const progression = generateProgression(progressionSizeMax, step);
+  const first = generateRand(stepMax);
+  const progression = generateProgression(first, progressionSizeMax, step);
   const hiddenElement = progression[hiddenIndex];
   progression[hiddenIndex] = '..';
   const question = progression.join(' ');
